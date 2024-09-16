@@ -1,0 +1,84 @@
+﻿@page
+@model CustomerWebApp.Pages.Customers.IndexModel
+@{
+    ViewData["Title"] = "Customer List";
+
+}
+<h3>@ViewData["Title"]</h3>
+<hr />
+<p>
+    <a asp-page="/Customers/Create" class="btn btn-primary">Create</a>
+</p>
+<table class="table table-success table-striped table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].LastName)
+            </th>
+          @*   <th>
+                @Html.DisplayNameFor(model => model.Customers[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].Phone)
+            </th> *@
+            <th>
+                Action
+            </th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null && Model.Customers.Any())
+        {
+           @foreach (var customer in Model.Customers)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(item => customer.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(item => customer.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(item => customer.LastName)
+                    </td>
+                   @*  <td>
+                        @Html.DisplayFor(item => customer.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(item => customer.Country)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(item => customer.Phone)
+                    </td> *@
+                    <td>
+                        <a asp-page="./Edit" asp-route-itemid="@customer.Id" class="btn btn-primary">Edit</a>
+                        <a asp-page="./Details" asp-route-itemid="@customer.Id" class="btn btn-success">Details</a>
+                        <a asp-page="./Delete" asp-route-itemid="@customer.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">
+                    Not available
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+
+</table>

@@ -1,0 +1,55 @@
+﻿@page
+@model CustomerWebApp.Pages.Customers.DeleteModel
+@{
+    ViewData["Title"] = "Details";
+}
+<h3>@ViewData["Title"]</h3>
+<hr />
+<div class="row">
+    <input type="hidden" asp-for="Customers.Id" />
+    <div class="col-md-4">
+
+        <input type="hidden" asp-for="Customers.Id" />
+        <div class="form-group">
+            <label asp-for="Customers.FirstName" class="control-label"></label>
+            <input asp-for="Customers.FirstName" class="form-control" readonly />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Customers.LastName" class="control-label"></label>
+            <input asp-for="Customers.LastName" class="form-control" readonly />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Customers.Email" class="control-label"></label>
+            <input asp-for="Customers.Email" class="form-control" readonly />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Customers.Country" class="control-label"></label>
+            <input asp-for="Customers.Country" class="form-control" readonly />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Customers.Phone" class="control-label"></label>
+            <input asp-for="Customers.Phone" class="form-control" readonly />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Customers.CreateDate" class="control-label"></label>
+            <input asp-for="Customers.CreateDate" class="form-control" readonly />
+
+        </div>
+        <form method="post">
+            <div class="form-group mt-2">
+                <input type="submit" value="Delete" class="btn btn-danger">
+                <a class=" btn btn-success" asp-page="Index">List</a>
+            </div>
+        </form>
+       
+
+
+
+    </div>
+
+</div>
